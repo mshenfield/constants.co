@@ -9,23 +9,32 @@ html(lang="en-US", ng-app="constantsCo")
     link(rel="stylesheet", href="css/main.css")
   body
     .container(ng-controller='Main as main')
-      h1 CONSTANTS.CO
-      .col-md-10.col-md-offset-1
-        .searchAndResults
-          .results
-            h2 QUANTITY {{main.constant.quantity}}
-            h2 VALUE {{main.constant.value}}
-            h2 UNCERTAINTY {{main.constant.uncertainty}}
-            h2 UNIT {{main.constant.unit}}
-          form.input-group(ng-submit='main.getConstant()')
-            input.form-control(placeholder='Search...', ng-model='query')
-        .allData
-          table.table
-            tr
-              th QUANTITY
-              th VALUE
-            tr(ng-repeat="constant in main.constantsObject")
-              td {{constant.Quantity}}
-              td {{constant.Value}}
+      .row
+          h1 CONSTANTS.CO
+          .jumbotron.col-md-10.col-md-offset-1
+            .row
+              .searchAndResults
+                form.input-group(ng-submit='main.getConstant()')
+                  input.form-control(placeholder='Search...', ng-model='query')
+            .row
+                .col-sm-4
+                  p QUANTITY {{main.constantsObject.Quantity}}
+                .col-sm-4
+                  p VALUE {{main.constantsObject.Value}} {{main.constantsObject.Unit}}
+                .col-sm-4
+                  p UNCERTAINTY {{main.constantsObject.Uncertainty}}
+          .row
+            .panel.panel-primary
+              .panel-heading
+                h4.p Browse Constants
+              .panel-body
+                .allData
+                  table.table.table-hover
+                    tr.btn-info
+                      th QUANTITY
+                      th VALUE
+                    tr(ng-repeat="constant in main.constantsObject | filter : query")
+                      td: a(href='https://en.wikipedia.org/wiki/Special:Search/{{constant.Quantity}}') {{constant.Quantity}}
+                      td {{constant.Value}} {{constant.Unit}}
     script(src="lib/build.js")
     script(src="js/main.js")

@@ -1,6 +1,6 @@
 var express = require('express');
 
-var app = express()
+var app = express();
 
 app.use(express.static('public'));
 
@@ -10,4 +10,4 @@ app.get('/', function(req, res) {
 
 app.listen(process.env.PORT || 8000);
 
-module.exports = app
+module.exports = app;
