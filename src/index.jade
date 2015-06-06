@@ -10,15 +10,22 @@ html(lang="en-US", ng-app="constantsCo")
   body
     .container(ng-controller='Main as main')
       h1 CONSTANTS.CO
-      .searchAndResults.col-md-10.col-md-offset-1
-        .results
-          h2 QUANTITY {{main.constant.quantity}}
-          h2 VALUE {{main.constant.value}}
-          h2 UNCERTAINTY {{main.constant.uncertainty}}
-          h2 UNIT {{main.constant.unit}}
-        form.input-group(ng-submit='main.getConstant()')
-          input.form-control(placeholder='Search...', ng-model='query')
+      .col-md-10.col-md-offset-1
+        .searchAndResults
+          .results
+            h2 QUANTITY {{main.constant.quantity}}
+            h2 VALUE {{main.constant.value}}
+            h2 UNCERTAINTY {{main.constant.uncertainty}}
+            h2 UNIT {{main.constant.unit}}
+          form.input-group(ng-submit='main.getConstant()')
+            input.form-control(placeholder='Search...', ng-model='query')
         .allData
-          h3 {{main.constants}}
+          table.table
+            tr
+              th QUANTITY
+              th VALUE
+            tr(ng-repeat="constant in main.constantsObject")
+              td {{constant.Quantity}}
+              td {{constant.Value}}
     script(src="lib/build.js")
     script(src="js/main.js")
