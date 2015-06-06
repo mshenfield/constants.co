@@ -11,18 +11,10 @@ html(lang="en-US", ng-app="constantsCo")
     .container(ng-controller='Main as main')
       .row
           h1 CONSTANTS.CO
-          .jumbotron.col-md-10.col-md-offset-1
-            .row
-              .searchAndResults
-                form.input-group
-                  input.form-control(placeholder='Search...', ng-model='query')
-            .row
-                .col-sm-4
-                  p QUANTITY {{main.constantsObject.Quantity}}
-                .col-sm-4
-                  p VALUE {{main.constantsObject.Value}} {{main.constantsObject.Unit}}
-                .col-sm-4
-                  p UNCERTAINTY {{main.constantsObject.Uncertainty}}
+          .jumbotron.col-md-12
+            .search
+              form
+                input.form-control.input-lg(placeholder='Search...', ng-model='query', style="height: 150px; font-size: 100px; line-height: 140px;")
       .row
         .panel.panel-primary
           .panel-heading
@@ -30,11 +22,17 @@ html(lang="en-US", ng-app="constantsCo")
           .panel-body
             .allData
               table.table.table-hover
-                tr.btn-info
+                tr.bg-info
                   th QUANTITY
                   th VALUE
+                  th UNCERTAINTY
+                  th WIKI
                 tr(ng-repeat="constant in main.constantsObject | filter : query")
-                  td: a(href='https://en.wikipedia.org/wiki/Special:Search/{{constant.Quantity}}') {{constant.Quantity}}
-                  td {{constant.Value}} {{constant.Unit}}
+                  td(ng-click="main.displayConstant(constant)") {{constant.Quantity}}
+                  td(ng-click="main.displayConstant(constant)") {{constant.Value}} {{constant.Unit}}
+                  td(ng-click="main.displayConstant(constant)") {{constant.Uncertainty}}
+                  td
+                    a(href='https://en.wikipedia.org/wiki/Special:Search/{{constant.Quantity}}', target="_blank")
+                      button.btn.btn-default Wiki
     script(src="lib/build.js")
     script(src="js/main.js")

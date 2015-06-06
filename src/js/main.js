@@ -19,6 +19,11 @@ angular
         console.log(res);
       });
 
+    main.constantOnDisplay = {};
+    main.displayConstant = function(constant) {
+      main.constantOnDisplay = constant;
+    };
+
     main.searchFilter = function(element) {
       return element.Quantity.match();
     };
