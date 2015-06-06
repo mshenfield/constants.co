@@ -24,7 +24,7 @@ html(lang="en-US", ng-app="constantsCo")
             tr
               th QUANTITY
               th VALUE
-            tr(ng-repeat="constant in main.constantsObject")
+            tr(ng-repeat="constant in main.constantsObject | quantityArray")
               td {{constant.Quantity}}
               td {{constant.Value}}
     script(src="lib/build.js")
