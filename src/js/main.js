@@ -5,17 +5,17 @@ angular
     var main = this;
 
     main.constant = {
-      quantity: '',
-      value: '',
-      uncertainty: '',
-      unit: ''
+      quantity: 'atom',
+      value: '1.1',
+      uncertainty: 'definitely',
+      unit: 'kg'
     }
 
     main.getConstant = function(query) {
       $http
-        .get(`http://www.nist.gov/srd/srd_data/srd121_allascii/.json`)
+        .get(`http://www.nist.gov/srd/srd_data/srd121_allascii.json`)
         .success(function(res) {
-
+          console.log(res)
         })
     }
   })
