@@ -4,18 +4,15 @@ angular
   .controller('Main', function($http) {
     var main = this;
 
-    main.constant = {
-      quantity: 'atom',
-      value: '1.1',
-      uncertainty: 'definitely',
-      unit: 'kg'
-    }
+    $http
+      .get(`http://www.nist.gov/srd/srd_data/srd121_allascii.json`)
+      .success(function(res) {
+        main.constants = res;
+      })
 
-    main.getConstant = function(query) {
-      $http
-        .get(`http://www.nist.gov/srd/srd_data/srd121_allascii.json`)
-        .success(function(res) {
-          console.log(res)
-        })
+
+
+    main.searchFilter = function(element) {
+      return element.Quantity.match()
     }
   })
