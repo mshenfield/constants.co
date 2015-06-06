@@ -21,7 +21,6 @@ angular
       });
 
 
-
     main.searchFilter = function(element) {
       return element.Quantity.match();
     };
