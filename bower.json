@@ -1,0 +1,21 @@
+{
+  "name": "constants.io",
+  "version": "1.0.o",
+  "homepage": "https://github.com/mshenfield/constants.io",
+  "authors": [
+    "maxshenfield calebgregory gregdick zorkslowski"
+  ],
+  "main": "index.html",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.4",
+    "angular": "~1.4.0"
+  }
+}
