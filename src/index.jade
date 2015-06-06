@@ -16,7 +16,7 @@ html(lang="en-US", ng-app="constantsCo")
           h2 VALUE {{main.constant.value}}
           h2 UNCERTAINTY {{main.constant.uncertainty}}
           h2 UNIT {{main.constant.unit}}
-        form.input-group
-        input.form-control(placeholder='Search...', ng-model='query', ng-submit='main.getConstant()')
+        form.input-group(ng-submit='main.getConstant()')
+          input.form-control(placeholder='Search...', ng-model='query')
     script(src="lib/build.js")
     script(src="js/main.js")
