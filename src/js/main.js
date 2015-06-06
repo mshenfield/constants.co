@@ -5,9 +5,10 @@ angular
     var main = this;
 
     $http
-      .get(`http://www.nist.gov/srd/srd_data/srd121_allascii.json`)
+      .get('data.json')
       .success(function(res) {
         main.constants = res;
+        console.log(res);
       })
 
 
@@ -15,4 +16,5 @@ angular
     main.searchFilter = function(element) {
       return element.Quantity.match()
     }
+
   })

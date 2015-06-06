@@ -18,5 +18,7 @@ html(lang="en-US", ng-app="constantsCo")
           h2 UNIT {{main.constant.unit}}
         form.input-group(ng-submit='main.getConstant()')
           input.form-control(placeholder='Search...', ng-model='query')
+        .allData
+          h3 {{main.constants}}
     script(src="lib/build.js")
     script(src="js/main.js")
