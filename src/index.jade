@@ -10,7 +10,8 @@ html(lang="en-US", ng-app="constantsCo")
   body
     .container(ng-controller='Main as main')
       .row
-          h1 CONSTANTS.CO
+          .col-sm-12
+            img(src="img/constants-co-logo.png")
           .jumbotron.col-md-10.col-md-offset-1
             .row
               .searchAndResults
@@ -26,7 +27,7 @@ html(lang="en-US", ng-app="constantsCo")
       .row
         .panel.panel-primary
           .panel-heading
-            h4.p Browse Constants
+            h4 Browse Constants
           .panel-body
             .allData
               table.table.table-hover
