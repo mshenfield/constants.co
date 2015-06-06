@@ -24,9 +24,8 @@ html(lang="en-US", ng-app="constantsCo")
             tr
               th QUANTITY
               th VALUE
-            tr(ng-repeat="constant in main.constantsObject | quantityArray")
             tr(ng-repeat="constant in main.constantsObject | filter : query")
-              td {{constant.Quantity}}
+              td: a(href='https://en.wikipedia.org/wiki/Special:Search/{{constant.Quantity}}') {{constant.Quantity}}
               td {{constant.Value}} {{constant.Unit}}
     script(src="lib/build.js")
     script(src="js/main.js")
