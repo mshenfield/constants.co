@@ -23,18 +23,18 @@ html(lang="en-US", ng-app="constantsCo")
                   p VALUE {{main.constantsObject.Value}} {{main.constantsObject.Unit}}
                 .col-sm-4
                   p UNCERTAINTY {{main.constantsObject.Uncertainty}}
-          .row
-            .panel.panel-primary
-              .panel-heading
-                h4.p Browse Constants
-              .panel-body
-                .allData
-                  table.table.table-hover
-                    tr.btn-info
-                      th QUANTITY
-                      th VALUE
-                    tr(ng-repeat="constant in main.constantsObject | filter : query")
-                      td: a(href='https://en.wikipedia.org/wiki/Special:Search/{{constant.Quantity}}') {{constant.Quantity}}
-                      td {{constant.Value}} {{constant.Unit}}
+        .row
+          .panel.panel-primary
+            .panel-heading
+              h4.p Browse Constants
+            .panel-body
+              .allData
+                table.table.table-hover
+                  tr.btn-info
+                    th QUANTITY
+                    th VALUE
+                  tr(ng-repeat="constant in main.constantsObject | filter : query")
+                    td: a(href='https://en.wikipedia.org/wiki/Special:Search/{{constant.Quantity}}') {{constant.Quantity}}
+                    td {{constant.Value}} {{constant.Unit}}
     script(src="lib/build.js")
     script(src="js/main.js")
