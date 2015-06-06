@@ -3,11 +3,12 @@ angular
 
   .controller('Main', function($http) {
     var main = this;
+    var main.constantsObject;
 
     $http
       .get('data.json')
       .success(function(res) {
-        main.constants = res;
+        main.constantsObject = res.constants;
         console.log(res);
       })
 
