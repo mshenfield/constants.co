@@ -13,19 +13,19 @@ html(lang="en-US", ng-app="constantsCo")
       .col-md-10.col-md-offset-1
         .searchAndResults
           .results
-            h2 QUANTITY {{main.constant.quantity}}
-            h2 VALUE {{main.constant.value}}
-            h2 UNCERTAINTY {{main.constant.uncertainty}}
-            h2 UNIT {{main.constant.unit}}
+            h2 QUANTITY {{main.constantsObject.Quantity}}
+            h2 VALUE {{main.constantsObject.Value}}
+            h2 UNCERTAINTY {{main.constantsObject.Uncertainty}}
+            h2 UNIT {{main.constantsObject.Unit}}
           form.input-group(ng-submit='main.getConstant()')
             input.form-control(placeholder='Search...', ng-model='query')
         .allData
-          table.table
+          table.table.table-hover
             tr
               th QUANTITY
               th VALUE
-            tr(ng-repeat="constant in main.constantsObject")
+            tr(ng-repeat="constant in main.constantsObject | filter : query")
               td {{constant.Quantity}}
-              td {{constant.Value}}
+              td {{constant.Value}} {{constant.Unit}}
     script(src="lib/build.js")
     script(src="js/main.js")
