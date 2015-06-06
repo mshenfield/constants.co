@@ -1,14 +1,22 @@
 doctype html
-html(lang="en-US", ng-app="angularAddresses")
+html(lang="en-US", ng-app="constantsCo")
   head
     meta(charset="utf-8")
     meta(http-equiv="X-UA-Compatible", content="IE=edge")
     meta(name="viewport", content="width=device-width, initial-scale=1")
-    title Angular Addresses
+    title Constants.co
     link(rel="stylesheet", href="lib/build.css")
     link(rel="stylesheet", href="css/main.css")
   body
-    .container
-
+    .container(ng-controller='Main as main')
+      h1 CONSTANTS.CO
+      .searchAndResults.col-md-10.col-md-offset-1
+        .results
+          h2 QUANTITY {{main.constant.quantity}}
+          h2 VALUE {{main.constant.value}}
+          h2 UNCERTAINTY {{main.constant.uncertainty}}
+          h2 UNIT {{main.constant.unit}}
+        form.input-group
+        input.form-control(placeholder='Search...', ng-model='query', ng-submit='main.getConstant()')
     script(src="lib/build.js")
     script(src="js/main.js")
