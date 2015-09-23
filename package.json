@@ -2,10 +2,13 @@
   "name": "constants.io",
   "version": "1.0.0",
   "description": "Open access to the most accurate standard measurements from NIST",
+  "engines": {
+    "node": "0.12.7"
+  },
   "main": "index.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "postinstall": "bower install && grunt build",
+    "postinstall": "source grabConstants.sh && bower install && grunt build",
     "start": " node app.js"
   },
   "repository": {
