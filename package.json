@@ -4,7 +4,9 @@
   "description": "Open access to the most accurate standard measurements from NIST",
   "main": "index.html",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postInstall": "source grabConstants.sh && bower install && grunt build",
+    "start": " node app.js"
   },
   "repository": {
     "type": "git",
@@ -17,6 +19,7 @@
   },
   "homepage": "https://github.com/mshenfield/constants.io",
   "dependencies": {
+    "bower": "^1.5.2",
     "express": "^4.12.0"
   },
   "devDependencies": {
