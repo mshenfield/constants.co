@@ -9,7 +9,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "postinstall": "bower install",
-    "start": "grunt build && node app.js"
+    "start": "node app.js"
   },
   "repository": {
     "type": "git",

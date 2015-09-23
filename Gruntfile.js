@@ -201,5 +201,8 @@ module.exports = function(grunt) {
     'connect',
     'watch'
   ]);
+  grunt.registerTask('heroku', [
+    'build'
+  ]);
 
 };
